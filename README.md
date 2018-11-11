@@ -1,6 +1,6 @@
 # EthCodeSpider
 A spider who can grab the information of smart contract in Ethereum  
-该爬虫是为了爬取以太坊智能合约的代码信息，下文包括爬取的URL和输出格式。
+该爬虫是为了爬取以太坊智能合约的代码信息，下文包括爬取的URL和输出格式。爬取的是网站etherscan.io上所有的智能合约信息，输出合约名称，内容，abi等信息，可以根据自己需要修改py代码，输出格式为txt。
 ## Functional description
 This spider can grab the information of smart contract in Ethereum from several sites.  
 Up to now, it can grab Contract Source Code, Contract ABI, Contract Creation Code adn Constructor Arguments.
