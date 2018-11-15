@@ -1,0 +1,5 @@
+2018-11-15 17:46:10 open_file_status:succeed full_path: F:\IsMyProject\python\EthCodeSpider/etherscan/address.txt
+2018-11-15 17:46:10 open_file_status:error full_path: F:\IsMyProject\python\EthCodeSpider\etherscan/ropsten_etherscan/address.txt spider_wrong: [Errno 2] No such file or directory: 'F:\\IsMyProject\\python\\EthCodeSpider\\etherscan/ropsten_etherscan/address.txt'
+2018-11-15 17:46:10 open_file_status:error full_path: F:\IsMyProject\python\EthCodeSpider\etherscan/kovan_etherscan/address.txt spider_wrong: [Errno 2] No such file or directory: 'F:\\IsMyProject\\python\\EthCodeSpider\\etherscan/kovan_etherscan/address.txt'
+2018-11-15 17:46:10 open_file_status:error full_path: F:\IsMyProject\python\EthCodeSpider\etherscan/rinkeby_etherscan/address.txt spider_wrong: [Errno 2] No such file or directory: 'F:\\IsMyProject\\python\\EthCodeSpider\\etherscan/rinkeby_etherscan/address.txt'
+2018-11-15 17:46:10 open_file_status:error full_path: F:\IsMyProject\python\EthCodeSpider\etherscan/tobalaba_etherscan/address.txt spider_wrong: [Errno 2] No such file or directory: 'F:\\IsMyProject\\python\\EthCodeSpider\\etherscan/tobalaba_etherscan/address.txt'
