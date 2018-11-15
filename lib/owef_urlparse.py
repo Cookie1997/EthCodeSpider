@@ -7,6 +7,7 @@ import json
 
 
 class RESPARSE:
+
     def parse(self):
         self.html = etree.HTML(self.content)
 
@@ -33,8 +34,8 @@ class RESPARSE:
                         _xml_contractname) > 0 else ""
                     _DateVerified = Date2path(_xml_dateVerified[0]) if len(
                         _xml_dateVerified) > 0 else ""
-                    code_urls.append(_url+',' + _ContractName +
-                                     ',' + _DateVerified+'\n')
+                    code_urls.append(_url + ',' + _ContractName +
+                                     ',' + _DateVerified + '\n')
             return (code_urls, next_url)
         except Exception as e:
             print("ERROR: %s\t\tdetail:%s" % (url, e))
@@ -57,7 +58,8 @@ class RESPARSE:
         if _CSC:
             Contract_ABI = _CSC[0]
         if _CCC:
-            Contract_Creation_Code_16 = _CCC[0] if "bzzr" not in _CCC[0] else ""
+            Contract_Creation_Code_16 = _CCC[
+                0] if "bzzr" not in _CCC[0] else ""
             _ = self.load_arm_code()
             Contract_Creation_Code_ARM = "" if "Unable to decode" == _ else _
         return (Contract_Source_Code, Contract_ABI, Contract_Creation_Code_16, Contract_Creation_Code_ARM)

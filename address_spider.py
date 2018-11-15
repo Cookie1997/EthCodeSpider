@@ -18,6 +18,7 @@ sites = [
 
 
 class SPIDER:
+
     def __init__(self, start_url='https://etherscan.io/contractsVerified/1?ps=100', path=None):
         self.urlmanage = URLMAN()
         self.urlload = URLLOAD()

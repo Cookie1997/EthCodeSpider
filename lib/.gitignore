@@ -3,5 +3,4 @@
 *.so
 *.egg
 *.egg-info
-.idea
 __pycache__

@@ -18,6 +18,7 @@ code_sites = [
 
 
 class SPIDER(SPIDER_BASE):
+
     def run(self, address, ContractName, DateVerified):
         try:
             content = self.urlload.dorequest(address)
@@ -35,7 +36,8 @@ class SPIDER(SPIDER_BASE):
 
 
 def run(path=None, file='address.txt'):
-    full_path = file if path == None else (os.getcwd() + '/'+path+"/"+file)
+    full_path = file if path == None else (
+        os.getcwd() + '/' + path + "/" + file)
     try:
         file = open(full_path)
         lines = file.readlines()
@@ -46,7 +48,7 @@ def run(path=None, file='address.txt'):
         for line in lines:
             line = line.split(',')
             ans = spider.run(line[0].split('#')[0], line[1],
-                                 line[2].replace('\n', ''))
+                             line[2].replace('\n', ''))
             if ans:
                 succeed += 1
             else:
