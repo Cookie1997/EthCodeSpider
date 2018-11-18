@@ -8,11 +8,11 @@ from .owef_dataoutput import OUTPUT
 
 class SPIDER_BASE:
 
-    def __init__(self):
+    def __init__(self, path=None, mode="w"):
         self.urlmanage = URLMAN()
         self.urlload = URLLOAD()
         self.urlparse = RESPARSE()
-        self.output = OUTPUT()
+        self.output = OUTPUT(path=path, mode="w")
 
     def run(self, url):
         pass

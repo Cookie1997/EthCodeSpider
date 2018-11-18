@@ -50,7 +50,7 @@ class RESPARSE:
         if len(_pres) >= 2:
             _CSCO = _pres[0].xpath("text()")
             _CSC = _pres[1].xpath("text()")
-            _CCC = _pres[3].xpath("text()")
+            _CCC = _pres[2].xpath("div/text()")
         Contract_Source_Code, Contract_ABI, Contract_Creation_Code_16, Contract_Creation_Code_ARM = "", "", "", ""
         if _CSCO:
             Contract_Source_Code_origin = _CSCO[0]
@@ -58,8 +58,7 @@ class RESPARSE:
         if _CSC:
             Contract_ABI = _CSC[0]
         if _CCC:
-            Contract_Creation_Code_16 = _CCC[
-                0] if "bzzr" not in _CCC[0] else ""
+            Contract_Creation_Code_16 = _CCC[0] if "bzzr" not in _CCC[0] else ""
             _ = self.load_arm_code()
             Contract_Creation_Code_ARM = "" if "Unable to decode" == _ else _
         return (Contract_Source_Code, Contract_ABI, Contract_Creation_Code_16, Contract_Creation_Code_ARM)

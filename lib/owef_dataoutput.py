@@ -4,49 +4,41 @@ import os
 
 class OUTPUT:
 
-    def __init__(self, file='address.txt', path=None):
-        self.file = file
+    def __init__(self, file='address.txt', path=None, mode='w'):
         self.root = os.getcwd()
+        self.mode = mode
         if path:
             full_path = self.root + '/data/' + path
             if os.path.exists(full_path):
-                os.chdir(full_path)
+                pass
             else:
                 os.mkdir(full_path)
-                os.chdir(full_path)
-        self.path = 'data/'+path
+        self.path = full_path
+        self.file = self.path+'/'+file
 
     def set_path(self, path):
         if path:
             full_path = self.root + '/data/' + path
             if os.path.exists(full_path):
-                os.chdir(full_path)
+                pass
             else:
                 os.mkdir(full_path)
-                os.chdir(full_path)
-        self.path = 'data/'+path
+        self.path = full_path
 
     def get_file(self, file):
         _file = ""
         if file == None:
             _file = self.file
         else:
-            _file = file
+            _file = self.path + '/' + file
         return _file
 
     def write_file(self, file=None):
         _file = self.get_file(file)
         if self.path:
-            self.file = open(_file, 'w', encoding="utf-8")
+            self.file = open(_file, self.mode, encoding="utf-8")
         else:
-            self.file = open(self.path + '/' + _file, 'w', encoding="utf-8")
-
-    def append_file(self, file=None):
-        _file = self.get_file(file)
-        if self.path:
-            self.file = open(_file, 'a', encoding="utf-8")
-        else:
-            self.file = open(self.path + '/' + _file, 'a', encoding="utf-8")
+            self.file = open(self.path + '/' + _file, self.mode, encoding="utf-8")
 
     def read_file(self, file=None):
         _file = self.get_file(file)
