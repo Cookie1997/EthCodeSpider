@@ -82,7 +82,7 @@ def run(path=None, file='address.txt', status=None):
                 full_path=full_path, msg="file is empty!"))
             return
 
-        spider = SPIDER(path=path, mode=("a+" if status else "w"))
+        spider = SPIDER(path=path, mode="a+", status=status)
         totals, total, succeed, error, index = 0, 0, 0, 0, 0
         cache_next_url = ""
         if status:

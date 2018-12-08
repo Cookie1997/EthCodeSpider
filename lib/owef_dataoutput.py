@@ -4,7 +4,7 @@ import os
 
 class OUTPUT:
 
-    def __init__(self, file='address.txt', path=None, mode='w'):
+    def __init__(self, file='address.txt', path=None, mode='w', status=None):
         self.root = os.getcwd()
         self.mode = mode
         if path:
@@ -15,6 +15,11 @@ class OUTPUT:
                 os.mkdir(full_path)
         self.path = full_path
         self.file = self.path+'/'+file
+        self.status = status
+        if self.status==None:
+            with open(self.file, "w") as f:
+                f.write("")
+
 
     def set_path(self, path):
         if path:
@@ -61,6 +66,7 @@ class OUTPUT:
         self.file.write('\r\n')
         self.file.write('Contract_ABI:\r\n')
         self.file.write(Contract_ABI)
+        self.file.write("\r\n")
         self.file.write('Contract_Creation_Code_16:\r\n')
         self.file.write(Contract_Creation_Code_16)
         self.file.write('\r\n')
