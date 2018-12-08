@@ -75,13 +75,15 @@ def run(path=None, file='address.txt', status=None):
         os.getcwd() + '/data/' + path + "/" + file)
     try:
         lines = []
-        with open(full_path) as file:
-            lines = file.readlines()
+        file_handler = open(full_path, mode="r")
+        lines = file_handler.readlines()
+        file_handler.close()    
+
         if lines == [] or lines == None:
             logging.info("read_file full_path: {full_path} spider_wrong: {msg}".format(
                 full_path=full_path, msg="file is empty!"))
             return
-
+        print(status)
         spider = SPIDER(path=path, mode="a+", status=status)
         totals, total, succeed, error, index = 0, 0, 0, 0, 0
         cache_next_url = ""

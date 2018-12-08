@@ -51,8 +51,7 @@ class SPIDER:
         self.urlmanage = URLMAN()
         self.urlload = URLLOAD()
         self.urlparse = RESPARSE()
-        self.output = OUTPUT(path=path, mode="a+", status=status)
-        self.output.write_file()
+        self.output = OUTPUT(path=path, file="address.txt", mode="a+", status=status)
         self.spider_name = path
         self.run(url=start_url, title=path, status=status)
 
