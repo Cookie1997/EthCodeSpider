@@ -84,7 +84,7 @@ class SPIDER:
                 success += 1
             else:
                 error += 1
-                logging.log(url + " - spider wrong : " + content)
+                logging.info(url + " - spider wrong : " + str(content))
             total += 1
             sys.stdout.write(process_bar_text(
                 self.spider_name, total, totals, success, error))

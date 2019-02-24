@@ -20,8 +20,12 @@ class RESPARSE:
         self.run(res, url)
         try:
             addresss = self.html.xpath("//table/tbody/tr")
-            next_url = urljoin(url, self.html.xpath(
-                "//div[@class='profile container']/div[4]/div[2]/p/a[3]/@href")[0])
+            uri1 = self.html.xpath('//*[@id="transfers"]/div[1]/nav/ul/li[4]/a/@href')
+            uri2 = self.html.xpath("//div[@class='profile container']/div[4]/div[2]/p/a[3]/@href")
+            if uri1 == [] and uri2 == []:
+                next_url = url
+            else:
+                next_url = urljoin(url, uri1[0]) if len(uri1)==1 else urljoin(url, uri2[0])
             code_urls = []
             if(len(addresss)):
                 for address in addresss:
@@ -65,11 +69,13 @@ class RESPARSE:
 
     def parse_list_page_count(self, res):
         self.run(res)
-        _counts = self.html.xpath(
+        _counts_old = self.html.xpath(
             "//div[@class='profile container']/div[2]/div[2]/p/span/b[2]/text()")
-        counts = []
-        if _counts:
-            counts = _counts[0]
+        _counts_new = self.html.xpath(
+            '//*[@id="transfers"]/div[1]/nav/ul/li[3]/span/strong[2]/text()')
+
+
+        counts = _counts_new[0] if len(_counts_new) == 1 else _counts_old[0]
         return int(counts)
 
     def load_arm_code(self):
