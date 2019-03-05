@@ -31,7 +31,7 @@ class RESPARSE:
                 for address in addresss:
                     _xml_url = address.xpath("td/a/@href")
                     _xml_contractname = address.xpath('td[2]/text()')
-                    _xml_dateVerified = address.xpath('td[7]/text()')
+                    _xml_dateVerified = address.xpath('td[8]/text()')# 7->8 changed by zyx
                     _url = urljoin(url, _xml_url[0]) if len(
                         _xml_url) > 0 else ""
                     _ContractName = _xml_contractname[0] if len(
